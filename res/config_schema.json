@@ -1,0 +1,56 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "kumitateru.toml config file schema",
+    "description": "A product from Acme's catalog",
+    "type": "object",
+     
+    "properties": {
+       "package": {
+          "description": "Package's main settings, such as main class, icon resource, and min/target SDK.",
+          "type": "object"
+       },
+       "package_meta": {
+           "description": "Package metadata.",
+           "type": "object",
+           "properties": {
+               "id": {
+                   "description": "Package ID. Can be referenced by an app on the phone.",
+                   "type": "string"
+               },
+               "name": {
+                   "description": "Package name. May be removed in the future and being replaced by the name_res in the package object, but you should create this property.",
+                   "type": "string"
+               },
+               "version": {
+                   "description": "Package version.",
+                   "type": "string"
+               },
+               "devices": {
+                   "description": "List of devices the app is compatible.",
+                   "type": "array",
+                   "items": {
+                       "type": "string"
+                   },
+                   "uniqueItems": true
+               },
+               "permissions": {
+                    "description": "List of permissions that this app will utilise..",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "uniqueItems": true
+                },
+               "required": ["id", "name", "version"]
+           }
+       },
+       "build": {
+
+       },
+       "dependencies": {
+
+       }
+    },
+
+    "required": ["package", "package_meta", "build", "dependencies"]
+ }
