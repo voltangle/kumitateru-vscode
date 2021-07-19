@@ -18,7 +18,6 @@
         "onCommand:kumitateru.buildProject",
 		"onCommand:kumitateru.runProject",
 		"onLanguage:monkeyc",
-		"onLanguage:jungle",
 		"onLanguage:toml"
 	],
 	"main": "./dist/extension.js",
