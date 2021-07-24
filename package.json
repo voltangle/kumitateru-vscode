@@ -1,11 +1,21 @@
 {
 	"name": "kumitateru",
 	"displayName": "Kumitateru",
-	"description": "Kumitateru build system support for Visual Studio Code",
+	"description": "Kumitateru build system integration for Visual Studio Code",
 	"version": "0.1.0",
-	"publisher": "ggoraa",
+	"publisher": "GGorAA",
 	"preview": true,
 	"icon": "logo.png",
+	"galleryBanner": {
+		"color": "#FFFFFF",
+		"theme": "dark"
+	},
+	"author": {
+		"name": "ggoraa",
+		"email": "ggoraa1029@gmail.com"
+	},
+	"qna": "https://github.com/ggoraa/kumitateru-vscode/discussions/categories/q-a",
+	"homepage": "https://github.com/ggoraa/kumitateru-vscode/blob/master/README.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ggoraa/kumitateru-vscode.git"
@@ -18,9 +28,17 @@
 		"url": "https://github.com/ggoraa/kumitateru-vscode"
 	},
 	"categories": [
+		"Debuggers",
+		"Linters",
 		"Other"
 	],
-	"keywords": ["garmin", "connectiq", "monkeyc", "build", "buildsystem"],
+	"keywords": [
+		"garmin",
+		"connectiq",
+		"monkeyc",
+		"build",
+		"buildsystem"
+	],
 	"activationEvents": [
 		"onCommand:kumitateru.buildProject",
 		"onCommand:kumitateru.runProject",
