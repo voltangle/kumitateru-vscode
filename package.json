@@ -3,7 +3,7 @@
 	"displayName": "Kumitateru",
 	"description": "Kumitateru build system support for Visual Studio Code",
 	"version": "0.1.0",
-	"publisher": "GGorAA",
+	"publisher": "ggoraa",
 	"preview": true,
 	"icon": "logo.png",
 	"repository": {
