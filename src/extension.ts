@@ -21,8 +21,10 @@ export function activate(context: vscode.ExtensionContext) {
 				process.on('exit', (code) => {
 					if (code !== 0) {
 						statusBarMessage.dispose();
+						vscode.window.showErrorMessage('Build finished with errors.');
 					} else {
 						statusBarMessage.dispose();
+						vscode.window.showInformationMessage('Build finished successfully');
 					}
 				});
 			});
