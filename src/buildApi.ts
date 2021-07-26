@@ -21,7 +21,7 @@ export function buildProject() {
                     close: () => {
                         runProcess.kill();
                     },
-                    handleInput: (data) => {
+                    handleInput: async (data) => {
                         // eslint-disable-next-line @typescript-eslint/naming-convention
                         let env = Object.assign({}, { 'KMTR_IDE_SILENT': 'true' }, process.env);
                         
@@ -93,7 +93,7 @@ export function runProject() {
                     close: () => {
                         runProcess.kill();
                     },
-                    handleInput: (data) => {
+                    handleInput: async (data) => {
                         // eslint-disable-next-line @typescript-eslint/naming-convention
                         let env = Object.assign({}, { 'KMTR_IDE_SILENT': 'true' }, process.env);
                         
