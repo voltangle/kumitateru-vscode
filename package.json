@@ -2,7 +2,7 @@
 	"name": "kumitateru",
 	"displayName": "Kumitateru",
 	"description": "Kumitateru build system integration for Visual Studio Code",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "GGorAA",
 	"preview": true,
 	"icon": "logo.png",
@@ -27,11 +27,7 @@
 	"bugs": {
 		"url": "https://github.com/ggoraa/kumitateru-vscode"
 	},
-	"categories": [
-		"Debuggers",
-		"Linters",
-		"Other"
-	],
+	"categories": ["Other"],
 	"keywords": [
 		"garmin",
 		"connectiq",
