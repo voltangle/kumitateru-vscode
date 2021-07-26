@@ -42,6 +42,7 @@
 	"activationEvents": [
 		"onCommand:kumitateru.buildProject",
 		"onCommand:kumitateru.runProject",
+		"onCommand:kumitateru.packageRelease",
 		"onLanguage:monkeyc",
 		"onLanguage:toml"
 	],
@@ -56,6 +57,11 @@
 			{
 				"command": "kumitateru.runProject",
 				"title": "Run project in a simulator",
+				"category": "Kumitateru"
+			},
+			{
+				"command": "kumitateru.packageRelease",
+				"title": "Package a release build for CIQ Store",
 				"category": "Kumitateru"
 			}
 		]
