@@ -29,16 +29,18 @@ export function runKmtrFunction(action: string) {
                         let runCommand: string;
                         switch (action) {
                             case 'run':
-                                runCommand = workspaceUri[0].uri.path + '/kmtr ' + action + ' --target ' + value;
+                                runCommand = 'kumitateru ' + action + ' --target ' + value;
                                 break;
                             
                             case 'build':
-                                runCommand = workspaceUri[0].uri.path + '/kmtr ' + action + ' --target ' + value;
+                                runCommand = 'kumitateru ' + action + ' --target ' + value;
                                 break;
 
                             case 'package':
-                                runCommand = workspaceUri[0].uri.path + '/kmtr build';
+                                runCommand = 'kumitateru package';
                                 break;
+                            case 'clean':
+                                runCommand = 'kumitateru clean'
                             default:
                                 break;
                         }
@@ -53,6 +55,7 @@ export function runKmtrFunction(action: string) {
                                 element = element + '\r';
                             });
                             readyData.forEach((element) => {
+                                markErrorsInEditor(element);
                                 writeEmitter.fire(element + '\n');
                                 writeEmitter.fire('\r');
                             });
@@ -63,6 +66,7 @@ export function runKmtrFunction(action: string) {
                                 element = element + '\r';
                             });
                             readyData.forEach((element) => {
+                                markErrorsInEditor(element);
                                 writeEmitter.fire(element + '\n');
                                 writeEmitter.fire('\r');
                             });
@@ -94,5 +98,18 @@ export function runKmtrFunction(action: string) {
         } else {
             vscode.window.showQuickPick(devicesArray, { title: 'Select the target device', canPickMany: false }).then((value) => buildFunction(value));
         }
+    }
+}
+
+function markErrorsInEditor(compilerOutput: string) {
+    let compilerOutArr = compilerOutput.split(' ');
+    switch (compilerOutArr[0]) {
+        case 'WARNING:': 
+            break;
+        case 'ERROR:':
+            let fileRefLength = compilerOutArr[2].length;
+            let fileCursorLocation = compilerOutArr[2].match("\\d+");
+            let fileLocation = compilerOutArr[2].slice(0, fileCursorLocation.index - 1);
+            break;
     }
 }
