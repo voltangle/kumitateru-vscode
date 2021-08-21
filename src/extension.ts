@@ -6,6 +6,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('kumitateru.buildProject', () => runKmtrFunction('build')));
 	context.subscriptions.push(vscode.commands.registerCommand("kumitateru.runProject", () => runKmtrFunction('run')));
 	context.subscriptions.push(vscode.commands.registerCommand('kumitateru.packageRelease', () => runKmtrFunction('package')));
+	context.subscriptions.push(vscode.commands.registerCommand('kumitateru.clean', () => runKmtrFunction('clean')));
 }
 
 export function deactivate() {

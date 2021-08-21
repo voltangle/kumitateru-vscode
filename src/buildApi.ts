@@ -40,7 +40,7 @@ export function runKmtrFunction(action: string) {
                                 runCommand = 'kumitateru package';
                                 break;
                             case 'clean':
-                                runCommand = 'kumitateru clean'
+                                runCommand = 'kumitateru clean';
                             default:
                                 break;
                         }
@@ -73,12 +73,33 @@ export function runKmtrFunction(action: string) {
                         });
                         runProcess.on('exit', (code) => {
                             if (code === null) {
-                                vscode.window.showInformationMessage(action === 'run' ? 'Run finished.' : 'Build finished');
+                                let message: string;
+                                switch (action) {
+                                    case 'build': message = 'Build finished'; break;
+                                    case 'run': message = 'Run finished'; break;
+                                    case 'package': message = 'Package finished'; break;
+                                    case 'clean': message = 'Cleaned'; break;
+                                }
+                                vscode.window.showInformationMessage(message);
                             } else {
                                 if (code !== 0) {
-                                    vscode.window.showErrorMessage(action === 'run' ? 'Run finished with errors.' : 'Build finished with errors.');
+                                    let message: string;
+                                    switch (action) {
+                                        case 'build': message = 'Build finished with errors'; break;
+                                        case 'run': message = 'Run finished with errors'; break;
+                                        case 'package': message = 'Package finished with errors'; break;
+                                        case 'clean': message = 'Cleaned'; break;
+                                    }
+                                    vscode.window.showErrorMessage(message);
                                 } else {
-                                    vscode.window.showInformationMessage(action === 'run' ? 'Run finished successfully.' : 'Build finished successfully.');
+                                    let message: string;
+                                    switch (action) {
+                                        case 'build': message = 'Build finished successfully'; break;
+                                        case 'run': message = 'Run finished successfully'; break;
+                                        case 'package': message = 'Package finished successfully'; break;
+                                        case 'clean': message = 'Cleaned'; break;
+                                    }
+                                    vscode.window.showInformationMessage(message);
                                 }
                             }
                             statusBarMessage.dispose();
@@ -93,8 +114,8 @@ export function runKmtrFunction(action: string) {
                 terminal.show();
             }
         };
-        if (action === 'package') {
-            buildFunction('package');
+        if (action === 'package' || action === 'clean') {
+            buildFunction(action);
         } else {
             vscode.window.showQuickPick(devicesArray, { title: 'Select the target device', canPickMany: false }).then((value) => buildFunction(value));
         }
