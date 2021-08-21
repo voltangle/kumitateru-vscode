@@ -39,6 +39,7 @@
 		"onCommand:kumitateru.buildProject",
 		"onCommand:kumitateru.runProject",
 		"onCommand:kumitateru.packageRelease",
+		"onCommand:kumitateru.clean",
 		"onLanguage:monkeyc",
 		"onLanguage:toml"
 	],
@@ -58,6 +59,11 @@
 			{
 				"command": "kumitateru.packageRelease",
 				"title": "Package a release build for CIQ Store",
+				"category": "Kumitateru"
+			},
+			{
+				"command": "kumitateru.clean",
+				"title": "Clean build directory",
 				"category": "Kumitateru"
 			}
 		]
